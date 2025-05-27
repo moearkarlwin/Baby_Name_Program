@@ -22,9 +22,25 @@ public class Main {
         }
     }
 
+    private void menu() {
+        System.out.println("BABY NAME PROGRAM");
+        System.out.println("------------------------------------");
+        System.out.println("[1] Adding One Baby Name");
+        System.out.println("[2] Adding Baby Name By Year");
+        System.out.println("[3] Editing One Baby Name");
+        System.out.println("[4] Deleting One Baby Name");
+        System.out.println("[5] Deleting Baby Name By Year");
+        System.out.println("[6] Reporting Baby Name By Year");
+        System.out.println("[7] Reporting Top 10 Baby Names");
+        System.out.println("[8] Exiting Program");
+        System.out.println("------------------------------------");
+        System.out.print("Choose menu between 1 and 8: ");
+    }
+
     public static void main(String[] args) {
         Main m = new Main();
         m.read_Data("data/Baby_Names.csv");
-        System.out.println(m.namelist.getLast());
+        System.out.println("Total Name List: " + m.namelist.size());
+        m.menu();
     }
 }
