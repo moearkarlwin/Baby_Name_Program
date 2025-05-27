@@ -2,6 +2,8 @@ package com.babynameprogram;
 
 import java.io.FileReader;
 import java.util.LinkedList;
+import java.util.Scanner;
+
 import com.opencsv.CSVReader;
 
 public class Main {
@@ -37,10 +39,51 @@ public class Main {
         System.out.print("Choose menu between 1 and 8: ");
     }
 
+    private boolean valid_Menu_No(String input) {
+        if(!input.matches("[1-8]")) {
+            System.out.println("You must enter menu number between 1 and 8.");
+            return false;
+        }
+        return true;
+    }
+
     public static void main(String[] args) {
         Main m = new Main();
         m.read_Data("data/Baby_Names.csv");
         System.out.println("Total Name List: " + m.namelist.size());
-        m.menu();
+
+        Scanner sc = new Scanner(System.in);
+        while(true) {
+            m.menu();
+            String input = sc.nextLine();
+            if(m.valid_Menu_No(input)) {
+                switch (input) {
+                    case "1":
+                        System.out.println("Adding One Baby Name");
+                        break;
+                    case "2":
+                        System.out.println("Adding Baby Name Year");
+                        break;
+                    case "3":
+                        System.out.println("Editing One Baby Name");
+                        break;
+                    case "4":
+                        System.out.println("Deleting One Baby Name");
+                        break;
+                    case "5":
+                        System.out.println("Deleting Baby Name By Year");
+                        break;
+                    case "6":
+                        System.out.println("Reporting Baby Name By Year");
+                        break;
+                    case "7":
+                        System.out.println("Reporting Top 10 Baby Names");
+                        break;
+                    default:
+                        System.out.println("Exiting program....");
+                        System.exit(0);
+                }
+            }
+        }
     }
 }
