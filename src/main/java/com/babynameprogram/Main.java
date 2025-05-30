@@ -7,7 +7,7 @@ import java.util.Scanner;
 import com.opencsv.CSVReader;
 
 public class Main {
-    private LinkedList<Baby_Name> namelist;
+    protected LinkedList<Baby_Name> namelist;
 
     public void read_Data(String filepath) {
         namelist = new LinkedList<>();
@@ -59,7 +59,8 @@ public class Main {
             if(m.valid_Menu_No(input)) {
                 switch (input) {
                     case "1":
-                        System.out.println("Adding One Baby Name");
+                        Adding_Baby_Name abn = new Adding_Baby_Name(m.namelist);
+                        abn.add_Name();
                         break;
                     case "2":
                         System.out.println("Adding Baby Name Year");

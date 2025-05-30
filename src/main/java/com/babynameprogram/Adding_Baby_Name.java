@@ -1,7 +1,6 @@
 package com.babynameprogram;
 
 import java.util.LinkedList;
-import java.util.Scanner;
 
 public class Adding_Baby_Name {
     private LinkedList<Baby_Name> namelist;
@@ -9,6 +8,8 @@ public class Adding_Baby_Name {
 
     public Adding_Baby_Name(LinkedList<Baby_Name> namelist) {
         this.namelist = namelist;
+        System.out.println("Adding New Baby Name");
+        System.out.println("--------------------");
     }
 
     public void add_Name() {
@@ -18,6 +19,11 @@ public class Adding_Baby_Name {
         if(!dwv.valid_Name(name, gender, year, namelist)) {
             add_Name();
         }
+        String count = dwv.get_Count();
 
+        namelist.add(new Baby_Name(name, gender, Integer.parseInt(year), 0, Integer.parseInt(count)));
+        dwv.ranking(namelist, gender, year);
+        dwv.write(namelist);
+        System.out.println("Successfully added a new baby name.");
     }
 }

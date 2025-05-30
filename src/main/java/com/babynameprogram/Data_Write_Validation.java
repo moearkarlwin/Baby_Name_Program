@@ -1,5 +1,9 @@
 package com.babynameprogram;
 
+import java.io.FileWriter;
+import java.io.PrintWriter;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.LinkedList;
 import java.util.Scanner;
 
@@ -56,5 +60,43 @@ public class Data_Write_Validation {
             }
         }
         return true;
+    }
+
+    public void ranking(LinkedList<Baby_Name> namelist, String gender, String year) {
+        LinkedList<Baby_Name> ranklist = new LinkedList<>();
+        for(Baby_Name b: namelist) {
+            if(b.getGender().equals(gender) && b.getYear() == Integer.parseInt(year)) {
+                ranklist.add(b);
+            }
+        }
+        namelist.removeAll(ranklist);
+
+        ranklist.sort(Collections.reverseOrder(Comparator.comparing(Baby_Name::getCount)));
+        int rank = 0;
+        int pre_count = 0;
+        for(Baby_Name b: ranklist) {
+            if(b.getCount() != pre_count) {
+                rank++;
+            }
+            b.setRank(rank);
+            pre_count = b.getCount();
+        }
+
+        namelist.addAll(ranklist);
+    }
+
+    public void write(LinkedList<Baby_Name> namelist) {
+        try {
+            PrintWriter pw = new PrintWriter(new FileWriter("data/Baby_Names.csv", false));
+            pw.println("name,gender,year,rank,count");
+            for(Baby_Name b: namelist) {
+                pw.println(b.getName() + "," + b.getGender() + "," + b.getYear() + "," + b.getRank() +
+                        "," + b.getCount());
+            }
+            pw.close();
+        }
+        catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 }
