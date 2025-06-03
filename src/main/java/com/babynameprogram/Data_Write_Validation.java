@@ -1,5 +1,6 @@
 package com.babynameprogram;
 
+import java.io.File;
 import java.io.FileWriter;
 import java.io.PrintWriter;
 import java.util.Collections;
@@ -98,5 +99,20 @@ public class Data_Write_Validation {
         catch (Exception e) {
             e.printStackTrace();
         }
+    }
+
+    public String get_File_Path() {
+        System.out.print("Enter file path: ");
+        String filepath = sc.nextLine();
+        while(filepath.isEmpty()) {
+            System.out.println("File path must not be empty.");
+            System.out.print("Enter file path: ");
+            filepath = sc.nextLine();
+        }
+        if(!new File(filepath).exists()) {
+            System.out.println("File does not exit.");
+            filepath = get_File_Path();
+        }
+        return filepath;
     }
 }
