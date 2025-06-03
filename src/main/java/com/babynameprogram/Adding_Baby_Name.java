@@ -16,8 +16,10 @@ public class Adding_Baby_Name {
         String name = dwv.get_Name();
         String gender = dwv.get_Gender();
         String year = dwv.get_Year();
-        if(!dwv.valid_Name(name, gender, year, namelist)) {
-            add_Name();
+        while(!dwv.valid_Name(name, gender, year, namelist)) {
+            name = dwv.get_Name();
+            gender = dwv.get_Gender();
+            year = dwv.get_Year();
         }
         String count = dwv.get_Count();
 
