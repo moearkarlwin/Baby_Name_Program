@@ -63,7 +63,8 @@ public class Main {
                         abn.add_Name();
                         break;
                     case "2":
-                        System.out.println("Adding Baby Name Year");
+                        Adding_Baby_Name_By_Year adny = new Adding_Baby_Name_By_Year(m.namelist);
+                        adny.add_Name();
                         break;
                     case "3":
                         System.out.println("Editing One Baby Name");

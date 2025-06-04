@@ -115,4 +115,14 @@ public class Data_Write_Validation {
         }
         return filepath;
     }
+
+    protected boolean valid_Year(String year, LinkedList<Baby_Name> namelist) {
+        for(Baby_Name b: namelist) {
+            if(b.getYear() == Integer.parseInt(year)) {
+                System.out.println("Year already exists.");
+                return false;
+            }
+        }
+        return true;
+    }
 }
