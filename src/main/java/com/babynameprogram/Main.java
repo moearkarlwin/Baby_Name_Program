@@ -67,7 +67,8 @@ public class Main {
                         adny.add_Name();
                         break;
                     case "3":
-                        System.out.println("Editing One Baby Name");
+                        Edit_Baby_Name ebn = new Edit_Baby_Name(m.namelist);
+                        ebn.edit_Name();
                         break;
                     case "4":
                         System.out.println("Deleting One Baby Name");

@@ -63,6 +63,33 @@ public class Data_Write_Validation {
         return true;
     }
 
+    protected boolean valid_Name(String name, String gender, String year, LinkedList<Baby_Name> namelist, int index) {
+        int i = 0;
+        for(Baby_Name b: namelist) {
+            if(b.getName().equals(name) &&  b.getGender().equals(gender) &&
+                    b.getYear() == Integer.parseInt(year) && i != index) {
+                System.out.println("Name already exists.");
+                return false;
+            }
+            i++;
+        }
+        return true;
+    }
+
+    protected int search_Name(String name, String gender, String year, LinkedList<Baby_Name> namelist) {
+        int index = 0;
+        for(Baby_Name b: namelist) {
+            if(b.getName().equals(name) &&  b.getGender().equals(gender) &&
+                    b.getYear() == Integer.parseInt(year)) {
+                System.out.println("Name is found.");
+                return index;
+            }
+            index++;
+        }
+        System.out.println("Name is not found.");
+        return -1;
+    }
+
     public void ranking(LinkedList<Baby_Name> namelist, String gender, String year) {
         LinkedList<Baby_Name> ranklist = new LinkedList<>();
         for(Baby_Name b: namelist) {
