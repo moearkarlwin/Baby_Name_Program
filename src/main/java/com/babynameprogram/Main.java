@@ -79,10 +79,12 @@ public class Main {
                         dbny.delete_Name();
                         break;
                     case "6":
-                        System.out.println("Reporting Baby Name By Year");
+                        Report_Baby_Name_By_Year rbn = new Report_Baby_Name_By_Year(m.namelist);
+                        rbn.report_Name();
                         break;
                     case "7":
-                        System.out.println("Reporting Top 10 Baby Names");
+                        Report_Top10_Baby_Name_By_Year rtbn = new Report_Top10_Baby_Name_By_Year(m.namelist);
+                        rtbn.report_Name();
                         break;
                     default:
                         System.out.println("Exiting program....");
