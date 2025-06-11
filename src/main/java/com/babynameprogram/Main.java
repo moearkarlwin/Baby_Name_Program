@@ -71,10 +71,12 @@ public class Main {
                         ebn.edit_Name();
                         break;
                     case "4":
-                        System.out.println("Deleting One Baby Name");
+                        Delete_Baby_Name dbn = new Delete_Baby_Name(m.namelist);
+                        dbn.delete_Name();
                         break;
                     case "5":
-                        System.out.println("Deleting Baby Name By Year");
+                        Delete_Baby_Name_By_Year dbny = new Delete_Baby_Name_By_Year(m.namelist);
+                        dbny.delete_Name();
                         break;
                     case "6":
                         System.out.println("Reporting Baby Name By Year");
